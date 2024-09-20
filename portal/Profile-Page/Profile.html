@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram-like Profile Page</title>
+    <link rel="stylesheet" href="../bg/styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fafafa;
+        }
+        .navbar {
+            background-color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #dbdbdb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #262626;
+            padding: 10px;
+        }
+        .title {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .profile {
+            text-align: center;
+            margin: 20px;
+        }
+        #profileImage {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .job {
+            font-size: 16px;
+            color: #999;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+        .grid-item {
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            padding: 5px;
+        }
+        .grid-item img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="../index.html">Home</a>
+        <div class="title">
+            <h1>Profile</h1>
+        </div>
+        <a href="#settings" onclick="openSettings()">Settings</a>
+    </div>
+
+    <!-- Profile Info -->
+    <div class="profile">
+        <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)" style="display: none;">
+        <img id="profileImage" src="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png" alt="Profile Image" onclick="document.getElementById('fileInput').click();">
+        <div class="name" id="profileName">ImDezCode</div>
+        <div class="job">Web Developer</div>
+    </div>
+
+    <!-- Posts Grid -->
+    <div class="grid-container">
+        <div class="grid-item"><img src="path/to/image1.jpg" alt="Post 1"></div>
+        <div class="grid-item"><img src="path/to/image2.jpg" alt="Post 2"></div>
+        <div class="grid-item"><img src="path/to/image3.jpg" alt="Post 3"></div>
+        <div class="grid-item"><img src="path/to/image4.jpg" alt="Post 4"></div>
+        <div class="grid-item"><img src="path/to/image5.jpg" alt="Post 5"></div>
+        <div class="grid-item"><img src="path/to/image6.jpg" alt="Post 6"></div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="sidebar" style="display:none;">
+        <h2>Settings</h2>
+        <button onclick="closeSettings()">Close</button>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profileImage').src = e.target.result;
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function openSettings() {
+            document.getElementById('settingsModal').style.display = 'block';
+        }
+
+        function closeSettings() {
+            document.getElementById('settingsModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

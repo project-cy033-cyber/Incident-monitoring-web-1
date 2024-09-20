@@ -1,0 +1,187 @@
+/* Styling the Top Navigation Bar */
+.top-nav {
+  background-color: #333;
+  overflow: hidden;
+  position: fixed; /* Keeps the nav bar at the top */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.top-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.top-nav ul li {
+  display: inline;
+}
+
+.top-nav ul li a {
+  color: white;
+  padding: 14px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+.top-nav ul li a:hover {
+  background-color: #575757;
+  color: white;
+}
+
+/* Adjust padding to account for fixed nav bar */
+body {
+  padding-top: 60px;
+  font-family: Arial, sans-serif;
+}
+
+/* Hide the chatbot by default */
+.chatbot {
+  display: none;
+}
+
+/* Show the chatbot when the "active" class is added */
+.chatbot.active {
+  display: block;
+}
+
+/* Chatbot Styles */
+.chatbot-toggler {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.chatbot-toggler .material-symbols-rounded,
+.chatbot-toggler .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.chatbot {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.chatbot header .close-btn {
+  cursor: pointer;
+}
+
+.chatbox {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  height: 250px;
+  overflow-y: auto;
+  background-color: #f1f1f1;
+  border-radius: 0 0 10px 10px;
+}
+
+.chatbox .chat {
+  margin: 10px 0;
+}
+
+.chatbox .incoming {
+  display: flex;
+  align-items: flex-start;
+}
+
+.chatbox .incoming .material-symbols-outlined {
+  margin-right: 10px;
+}
+
+.chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+}
+
+.chat-input textarea {
+  width: 80%;
+  border: none;
+  padding: 10px;
+  resize: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.chat-input textarea:focus {
+  outline: none;
+}
+
+#send-btn {
+  width: 20%;
+  text-align: center;
+  cursor: pointer;
+  color: #4CAF50;
+  font-size: 24px;
+  padding: 10px;
+}
+
+/* Sections for Home, Dashboard, and News */
+section {
+  padding: 20px;
+  margin: 20px 0;
+  display: none;
+}
+
+section:target {
+  display: block;
+}
+
+section h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+section p {
+  font-size: 16px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  .chatbot {
+    width: 100%;
+    right: 0;
+    bottom: 0;
+  }
+
+  .chatbot-toggler {
+    bottom: 10px;
+    right: 10px;
+  }
+}
